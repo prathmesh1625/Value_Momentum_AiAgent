@@ -1,0 +1,18 @@
+{
+  "insured_name": "Napa Valley Home & Garden Supply LLC",
+  "annual_revenue": 2200000,
+  "building_value": 1600000,
+  "contents_value": 700000,
+  "construction_type": "joisted masonry",
+  "year_built": 1972,
+  "sprinklered": true,
+  "state": "CA",
+  "appetite": "refer",
+  "clearance": "clear",
+  "priority": "P2-standard",
+  "blocking": [],
+  "conflict": false,
+  "effective_date": "2027-01-11",
+  "loss_count": 0,
+  "loss_total": 0
+}

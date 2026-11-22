@@ -1,0 +1,92 @@
+{
+  "summary": {
+    "run_at": "2026-11-21T14:24:45",
+    "model": "openai/gpt-oss-120b",
+    "samples": 12,
+    "failed_runs": 0,
+    "field_accuracy": 1.0,
+    "hallucinated_values": "0/3",
+    "decision_accuracy": {
+      "appetite": "12/12",
+      "clearance": "12/12",
+      "priority": "12/12",
+      "blocking": "12/12",
+      "conflict": "12/12"
+    },
+    "avg_seconds_per_submission": 20.9
+  },
+  "rows": [
+    {
+      "id": "S001",
+      "seconds": 3.7,
+      "wrong": [],
+      "fields_ok": 11
+    },
+    {
+      "id": "S002",
+      "seconds": 28.4,
+      "wrong": [],
+      "fields_ok": 11
+    },
+    {
+      "id": "S003",
+      "seconds": 27.2,
+      "wrong": [],
+      "fields_ok": 11
+    },
+    {
+      "id": "S004",
+      "seconds": 25.8,
+      "wrong": [],
+      "fields_ok": 11
+    },
+    {
+      "id": "S005",
+      "seconds": 18.4,
+      "wrong": [],
+      "fields_ok": 11
+    },
+    {
+      "id": "S006",
+      "seconds": 24.7,
+      "wrong": [],
+      "fields_ok": 11
+    },
+    {
+      "id": "S007",
+      "seconds": 21.3,
+      "wrong": [],
+      "fields_ok": 11
+    },
+    {
+      "id": "S008",
+      "seconds": 19.1,
+      "wrong": [],
+      "fields_ok": 11
+    },
+    {
+      "id": "S009",
+      "seconds": 16.3,
+      "wrong": [],
+      "fields_ok": 11
+    },
+    {
+      "id": "S010",
+      "seconds": 19.3,
+      "wrong": [],
+      "fields_ok": 11
+    },
+    {
+      "id": "S011",
+      "seconds": 24.8,
+      "wrong": [],
+      "fields_ok": 11
+    },
+    {
+      "id": "S012",
+      "seconds": 22.2,
+      "wrong": [],
+      "fields_ok": 11
+    }
+  ]
+}

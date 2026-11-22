@@ -1,0 +1,22 @@
+{
+  "insured_name": "Peak Logistics Storage LLC",
+  "annual_revenue": 1200000,
+  "building_value": 2900000,
+  "contents_value": 800000,
+  "construction_type": null,
+  "year_built": null,
+  "sprinklered": null,
+  "state": "CO",
+  "appetite": "in_appetite",
+  "clearance": "clear",
+  "priority": "P2-standard",
+  "blocking": [
+    "construction_type",
+    "loss_runs",
+    "year_built"
+  ],
+  "conflict": false,
+  "effective_date": "2026-11-26",
+  "loss_count": 0,
+  "loss_total": 0
+}

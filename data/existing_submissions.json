@@ -1,0 +1,23 @@
+[
+  {
+    "submission_id": "EX-2026-0912",
+    "insured_name": "Riverside Auto Parts, Inc.",
+    "address": "880 West Broad Street, Columbus, OH 43222",
+    "broker": "Great Lakes Insurance Brokers",
+    "received": "2026-11-02"
+  },
+  {
+    "submission_id": "EX-2026-0877",
+    "insured_name": "Lakeview Pediatrics PC",
+    "address": "77 Lake Shore Dr, Chicago, IL 60611",
+    "broker": "Windy City Agency",
+    "received": "2026-10-28"
+  },
+  {
+    "submission_id": "EX-2026-0790",
+    "insured_name": "Bright Horizons Daycare LLC",
+    "address": "12 Elm St, Plano, TX 75074",
+    "broker": "Lone Star Brokers",
+    "received": "2026-10-11"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "insured_name": "Cascade Code Labs Inc",
+  "annual_revenue": 2800000,
+  "building_value": 4500000,
+  "contents_value": 1200000,
+  "construction_type": "fire resistive",
+  "year_built": 2015,
+  "sprinklered": true,
+  "state": "WA",
+  "appetite": "in_appetite",
+  "clearance": "clear",
+  "priority": "P1-hot",
+  "blocking": [],
+  "conflict": true,
+  "effective_date": "2026-12-12",
+  "loss_count": 0,
+  "loss_total": 0
+}

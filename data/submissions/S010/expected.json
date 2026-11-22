@@ -1,0 +1,18 @@
+{
+  "insured_name": "Desert Bloom Family Medicine PLLC",
+  "annual_revenue": 3500000,
+  "building_value": 9000000,
+  "contents_value": 2500000,
+  "construction_type": "fire resistive",
+  "year_built": 1999,
+  "sprinklered": false,
+  "state": "AZ",
+  "appetite": "refer",
+  "clearance": "clear",
+  "priority": "P2-standard",
+  "blocking": [],
+  "conflict": false,
+  "effective_date": "2027-01-06",
+  "loss_count": 1,
+  "loss_total": 12000
+}

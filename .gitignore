@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+runtime/
+.pytest_cache/
+.streamlit/secrets.toml
+# personal interview prep notes: kept local, not published
+interview/

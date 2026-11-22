@@ -1,0 +1,18 @@
+{
+  "insured_name": "Keystone Insurance Agency LLC",
+  "annual_revenue": 1600000,
+  "building_value": 1300000,
+  "contents_value": 250000,
+  "construction_type": "fire resistive",
+  "year_built": 1990,
+  "sprinklered": true,
+  "state": "OH",
+  "appetite": "in_appetite",
+  "clearance": "clear",
+  "priority": "P1-hot",
+  "blocking": [],
+  "conflict": false,
+  "effective_date": "2026-12-02",
+  "loss_count": 0,
+  "loss_total": 0
+}

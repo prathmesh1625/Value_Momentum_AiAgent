@@ -1,0 +1,4 @@
+# Development only (not installed on the hosting platform)
+-r requirements.txt
+pytest
+playwright  # for scripts/take_screenshots.py; then run: playwright install chromium

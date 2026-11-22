@@ -1,0 +1,18 @@
+{
+  "insured_name": "Riverside Auto Parts Inc.",
+  "annual_revenue": 4300000,
+  "building_value": 1400000,
+  "contents_value": 900000,
+  "construction_type": "joisted masonry",
+  "year_built": 1987,
+  "sprinklered": false,
+  "state": "OH",
+  "appetite": null,
+  "clearance": "possible_duplicate",
+  "priority": "P3-low",
+  "blocking": [],
+  "conflict": false,
+  "effective_date": "2027-01-01",
+  "loss_count": 1,
+  "loss_total": 9000
+}

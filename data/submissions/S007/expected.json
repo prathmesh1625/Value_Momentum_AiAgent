@@ -1,0 +1,18 @@
+{
+  "insured_name": "Green Leaf Wellness LLC",
+  "annual_revenue": 1900000,
+  "building_value": 900000,
+  "contents_value": 350000,
+  "construction_type": "masonry",
+  "year_built": 1978,
+  "sprinklered": false,
+  "state": "CO",
+  "appetite": "out_of_appetite",
+  "clearance": "clear",
+  "priority": "decline",
+  "blocking": [],
+  "conflict": false,
+  "effective_date": "2026-12-22",
+  "loss_count": 0,
+  "loss_total": 0
+}

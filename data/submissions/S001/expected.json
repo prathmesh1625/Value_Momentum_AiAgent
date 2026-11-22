@@ -1,0 +1,18 @@
+{
+  "insured_name": "Bright Smile Dental Care LLC",
+  "annual_revenue": 2400000,
+  "building_value": 1850000,
+  "contents_value": 620000,
+  "construction_type": "joisted masonry",
+  "year_built": 2004,
+  "sprinklered": true,
+  "state": "TX",
+  "appetite": "in_appetite",
+  "clearance": "clear",
+  "priority": "P1-hot",
+  "blocking": [],
+  "conflict": false,
+  "effective_date": "2026-12-13",
+  "loss_count": 0,
+  "loss_total": 0
+}

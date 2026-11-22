@@ -1,0 +1,18 @@
+{
+  "insured_name": "Rusty Anchor Tavern Inc",
+  "annual_revenue": 1400000,
+  "building_value": 1100000,
+  "contents_value": 200000,
+  "construction_type": "joisted masonry",
+  "year_built": 1925,
+  "sprinklered": false,
+  "state": "IL",
+  "appetite": "out_of_appetite",
+  "clearance": "clear",
+  "priority": "decline",
+  "blocking": [],
+  "conflict": false,
+  "effective_date": "2026-12-12",
+  "loss_count": 1,
+  "loss_total": 45000
+}

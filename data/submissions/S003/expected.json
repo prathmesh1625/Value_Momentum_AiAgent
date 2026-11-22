@@ -1,0 +1,18 @@
+{
+  "insured_name": "Boom Town Fireworks LLC",
+  "annual_revenue": 5600000,
+  "building_value": 3200000,
+  "contents_value": 1900000,
+  "construction_type": "metal frame",
+  "year_built": 2011,
+  "sprinklered": true,
+  "state": "NV",
+  "appetite": "out_of_appetite",
+  "clearance": "clear",
+  "priority": "decline",
+  "blocking": [],
+  "conflict": false,
+  "effective_date": "2026-12-17",
+  "loss_count": 1,
+  "loss_total": 140000
+}

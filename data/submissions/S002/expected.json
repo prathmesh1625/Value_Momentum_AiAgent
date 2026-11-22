@@ -1,0 +1,18 @@
+{
+  "insured_name": "Gulf Breeze Seafood Grill Inc",
+  "annual_revenue": 3100000,
+  "building_value": 2300000,
+  "contents_value": 450000,
+  "construction_type": "masonry non-combustible",
+  "year_built": 1998,
+  "sprinklered": true,
+  "state": "TX",
+  "appetite": "refer",
+  "clearance": "clear",
+  "priority": "P2-standard",
+  "blocking": [],
+  "conflict": false,
+  "effective_date": "2026-12-22",
+  "loss_count": 2,
+  "loss_total": 50500
+}

@@ -1,0 +1,18 @@
+{
+  "insured_name": "Sunset Furniture Assembly Co",
+  "annual_revenue": 6800000,
+  "building_value": 4100000,
+  "contents_value": 2200000,
+  "construction_type": "frame",
+  "year_built": 1955,
+  "sprinklered": true,
+  "state": "OH",
+  "appetite": "refer",
+  "clearance": "clear",
+  "priority": "P2-standard",
+  "blocking": [],
+  "conflict": false,
+  "effective_date": "2026-12-27",
+  "loss_count": 4,
+  "loss_total": 388000
+}
