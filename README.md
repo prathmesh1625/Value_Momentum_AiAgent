@@ -142,22 +142,34 @@ copy .env.example .env            # macOS/Linux: cp .env.example .env
 # 3. Generate the sample submissions
 python scripts/generate_samples.py
 
-# 4. Start the mock PolicyCenter API (separate terminal)
-uvicorn mock_policycenter.api:app --port 8001
-
-# 5a. Underwriter dashboard
+# 4a. Underwriter dashboard (the mock PolicyCenter API runs inside the app by default)
 streamlit run ui/streamlit_app.py
 
-# 5b. ...or the command line
+# 4b. ...or the command line
 python run_cli.py S001
 python run_cli.py S003 --auto decline
 
+# Optional: run the mock PolicyCenter as a separate service (real network calls)
+uvicorn mock_policycenter.api:app --port 8001     # then set POLICYCENTER_URL=http://127.0.0.1:8001
+
 # Tests for the rule-based parts (no API key needed)
+pip install -r requirements-dev.txt
 pytest -q
 
 # Accuracy evaluation against the answer key (uses the LLM, ~4 min on the free tier)
 python scripts/evaluate.py
 ```
+
+## Deployment
+
+Hosted for free on **Streamlit Community Cloud** (main file `ui/streamlit_app.py`, Python 3.12).
+The Groq key is stored in the platform's secret settings, not in the code. For a public demo:
+
+- The mock PolicyCenter runs in-process (`POLICYCENTER_URL=embedded`): one service, still a real
+  HTTP request through FastAPI routing and validation.
+- Each visitor session is limited to 10 runs (`MAX_RUNS_PER_SESSION`) to protect the free LLM quota;
+  uploads are capped at 5 MB.
+- Sample submissions are regenerated at startup so effective dates stay relative to today.
 
 ## Project layout
 
