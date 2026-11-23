@@ -40,21 +40,20 @@ applications, loss runs, statements of values. Before any underwriting starts, s
 This is slow, manual work. Submissions that sit in an inbox are often lost to a carrier that
 replied faster. This project automates steps 1-5 and leaves the decision with the underwriter.
 
-## How it works
+## Architecture
 
-```mermaid
-graph LR
-  A[Broker email + PDFs] --> B[Intake Agent<br/>LLM extraction]
-  B --> C[Validation Agent<br/>completeness rules]
-  C --> D[Clearance Agent<br/>duplicate check]
-  D -- possible duplicate --> G
-  D -- clear --> E[Enrichment Agent<br/>geocode + hazards]
-  E --> F[Appetite Agent<br/>rules + RAG + LLM]
-  F --> G[Triage Agent<br/>score + brief]
-  G --> H{{Underwriter review<br/>human-in-the-loop}}
-  H -- approve --> I[Create in PolicyCenter API]
-  H -- request info / decline --> J[Draft broker email]
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/architecture/architecture-dark.svg">
+  <img alt="Architecture: broker submission flows through Intake, Validation, Clearance, Enrichment, Appetite and Triage agents in a LangGraph workflow, pauses for underwriter review, then creates a PolicyCenter record or drafts a broker email. Groq LLM, prior submissions, OpenStreetMap, underwriting guidelines (RAG) and SQLite state support the agents." src="docs/architecture/architecture-light.svg">
+</picture>
+
+Diagram drawn with [Archify](https://github.com/tt-a1i/archify) from
+[`docs/architecture/architecture.json`](docs/architecture/architecture.json). For an interactive
+version with guided views (submission journey, LLM grounding, human control), download
+[`architecture.html`](docs/architecture/architecture.html) and open it in a browser.
+
+**Solid arrows:** the main path. **Dashed:** a lookup or an alternative route. If clearance finds a
+possible duplicate, the graph skips enrichment and appetite and goes straight to triage.
 
 | Agent | What it does | LLM or code? |
 |---|---|---|

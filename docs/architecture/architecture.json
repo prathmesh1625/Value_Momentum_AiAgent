@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Commercial Submission Intake & Triage: Multi-Agent Architecture",
+    "output": "architecture.html",
+    "locale": "en",
+    "quality_profile": "standard",
+    "visual_preset": "editorial",
+    "animation": "trace",
+    "viewBox": [1540, 860],
+    "views": [
+      {
+        "id": "submission-journey",
+        "label": "Submission journey",
+        "focus": ["broker", "intake", "validation", "clearance", "enrichment", "appetite", "triage", "review", "finalize", "policycenter", "broker_email"],
+        "note": "Follow one broker submission from email to a PolicyCenter record or a drafted reply."
+      },
+      {
+        "id": "grounding",
+        "label": "LLM + grounding",
+        "focus": ["intake", "groq", "clearance", "prior", "enrichment", "geo", "appetite", "guidelines"],
+        "note": "Where the LLM is used, and the data and tools that keep answers grounded."
+      },
+      {
+        "id": "control",
+        "label": "Human control + audit",
+        "focus": ["triage", "review", "state", "finalize"],
+        "note": "The graph pauses for the underwriter; every step is checkpointed and audited."
+      }
+    ],
+    "legend": {
+      "mode": "auto",
+      "entries": {
+        "backend": { "label": "Agent (LangGraph node)" },
+        "frontend": { "label": "Underwriter UI" },
+        "cloud": { "label": "Hosted LLM" },
+        "database": { "label": "Data, retrieval, state" },
+        "external": { "label": "External party / system" }
+      }
+    }
+  },
+  "components": [
+    { "id": "broker", "type": "external", "label": "Broker", "sublabel": "Email + ACORD PDFs", "pos": [30, 330], "size": [140, 64], "tag": "INPUT" },
+    { "id": "intake", "type": "backend", "label": "Intake Agent", "sublabel": "Extract 25 fields", "pos": [210, 330], "size": [150, 64], "tag": "LLM" },
+    { "id": "validation", "type": "backend", "label": "Validation Agent", "sublabel": "Completeness rules", "pos": [395, 330], "size": [150, 64], "tag": "CODE" },
+    { "id": "clearance", "type": "backend", "label": "Clearance Agent", "sublabel": "Duplicate check", "pos": [580, 330], "size": [150, 64], "tag": "CODE" },
+    { "id": "enrichment", "type": "backend", "label": "Enrichment Agent", "sublabel": "Geocode + hazards", "pos": [765, 330], "size": [150, 64], "tag": "TOOLS" },
+    { "id": "appetite", "type": "backend", "label": "Appetite Agent", "sublabel": "Rules + RAG + LLM", "pos": [950, 330], "size": [150, 64], "tag": "HYBRID" },
+    { "id": "triage", "type": "backend", "label": "Triage Agent", "sublabel": "Score + LLM brief", "pos": [1135, 330], "size": [150, 64], "tag": "HYBRID" },
+    { "id": "review", "type": "frontend", "label": "Underwriter Review", "sublabel": "interrupt() + Streamlit", "pos": [1330, 330], "size": [170, 64], "tag": "HUMAN" },
+    { "id": "finalize", "type": "backend", "label": "Finalize", "sublabel": "Approve / ask / decline", "pos": [1330, 560], "size": [170, 64], "tag": "ACTION" },
+    { "id": "policycenter", "type": "external", "label": "PolicyCenter API", "sublabel": "REST, Guidewire-style", "pos": [1100, 720], "size": [170, 64], "tag": "CORE SYSTEM" },
+    { "id": "broker_email", "type": "external", "label": "Broker Email Draft", "sublabel": "Human sends it", "pos": [860, 720], "size": [170, 64], "tag": "OUTPUT" },
+    { "id": "groq", "type": "cloud", "label": "Groq LLM", "sublabel": "gpt-oss-120b", "pos": [210, 140], "size": [150, 64], "tag": "MODEL" },
+    { "id": "prior", "type": "database", "label": "Prior Submissions", "sublabel": "Clearance index", "pos": [580, 140], "size": [150, 64], "tag": "DATA" },
+    { "id": "geo", "type": "external", "label": "OpenStreetMap", "sublabel": "+ CAT hazard data", "pos": [765, 140], "size": [150, 64], "tag": "API" },
+    { "id": "guidelines", "type": "database", "label": "Underwriting Guidelines", "sublabel": "BM25 retrieval (RAG)", "pos": [950, 140], "size": [170, 64], "tag": "RAG" },
+    { "id": "state", "type": "database", "label": "LangGraph State", "sublabel": "SQLite checkpoints + audit", "pos": [1320, 140], "size": [190, 64], "tag": "STATE" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "LangGraph workflow (shared typed state)", "wraps": ["intake", "validation", "clearance", "enrichment", "appetite", "triage", "review", "finalize"], "pad": 26 },
+    { "kind": "region", "label": "Grounding data and tools", "wraps": ["prior", "geo", "guidelines"], "pad": 24 },
+    { "kind": "security-group", "label": "Core systems / outbound", "wraps": ["policycenter", "broker_email"], "pad": 24 }
+  ],
+  "connections": [
+    { "id": "broker-to-intake", "from": "broker", "to": "intake", "label": "submission", "variant": "emphasis", "labelDy": -30 },
+    { "id": "intake-to-validation", "from": "intake", "to": "validation", "variant": "emphasis" },
+    { "id": "validation-to-clearance", "from": "validation", "to": "clearance", "variant": "emphasis" },
+    { "id": "clearance-to-enrichment", "from": "clearance", "to": "enrichment", "variant": "emphasis" },
+    { "id": "enrichment-to-appetite", "from": "enrichment", "to": "appetite", "variant": "emphasis" },
+    { "id": "appetite-to-triage", "from": "appetite", "to": "triage", "variant": "emphasis" },
+    { "id": "clearance-to-triage", "from": "clearance", "to": "triage", "label": "possible duplicate: skip ahead", "variant": "dashed", "fromSide": "bottom", "toSide": "bottom", "via": [[655, 450], [1210, 450]] },
+    { "id": "triage-to-review", "from": "triage", "to": "review", "variant": "security" },
+    { "id": "review-to-finalize", "from": "review", "to": "finalize", "label": "decision", "variant": "security", "labelAt": [1462, 478] },
+    { "id": "finalize-to-policycenter", "from": "finalize", "to": "policycenter", "label": "approve: POST", "variant": "emphasis", "fromSide": "bottom", "toSide": "right", "via": [[1415, 752]], "labelAt": [1345, 774] },
+    { "id": "finalize-to-email", "from": "finalize", "to": "broker_email", "label": "request info / decline", "fromSide": "left", "toSide": "top", "via": [[945, 592]], "labelAt": [1140, 576] },
+    { "id": "intake-to-groq", "from": "intake", "to": "groq", "label": "structured output", "variant": "dashed", "labelAt": [340, 268] },
+    { "id": "clearance-to-prior", "from": "clearance", "to": "prior", "label": "fuzzy match", "variant": "dashed", "labelAt": [700, 268] },
+    { "id": "enrichment-to-geo", "from": "enrichment", "to": "geo", "label": "lookup", "variant": "dashed", "labelAt": [870, 268] },
+    { "id": "appetite-to-guidelines", "from": "appetite", "to": "guidelines", "label": "retrieve + cite", "variant": "dashed", "labelAt": [1075, 268] },
+    { "id": "review-to-state", "from": "review", "to": "state", "label": "checkpoint / resume", "variant": "dashed", "labelAt": [1470, 268] }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "LLM for judgment, code for rules", "items": ["LLM: document extraction, business-class judgment, brief writing", "Code: money thresholds, scoring, duplicate matching (unit-tested)", "Appetite decisions cite guideline rule numbers"] },
+    { "dot": "violet", "title": "Human in control", "items": ["interrupt() pauses the graph for the underwriter", "State is checkpointed, so a run resumes days later", "Every step and decision is written to the audit log"] },
+    { "dot": "amber", "title": "Measured", "items": ["12 labelled submissions", "132/132 fields extracted correctly", "60/60 decisions correct, 0 invented values"] }
+  ]
+}
