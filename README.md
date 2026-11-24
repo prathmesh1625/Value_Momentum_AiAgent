@@ -7,6 +7,10 @@ administration system or drafts the reply to the broker.
 
 Built with **LangGraph**, **Groq** (open-weight LLMs), **Pydantic**, **FastAPI** and **Streamlit**.
 
+**▶ Live demo: [valuemomentumaiagent.streamlit.app](https://valuemomentumaiagent.streamlit.app/)**: pick a sample
+submission, click *Run agents*, then approve or decline as the underwriter. (If the app has been idle it may take
+~30 seconds to wake up.)
+
 **Results on 12 labelled test submissions:** 132/132 fields extracted correctly, 0 invented values,
 60/60 decisions correct ([details](#evaluation)).
 
